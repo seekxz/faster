@@ -1,2 +1,3 @@
 # faster
-Front End Performance Optimization
+
+[Front End Performance Optimization](https://seekxz.github.io/faster/)
