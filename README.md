@@ -31,16 +31,63 @@ RAIL 模型，加载完成后的交互响应参考的是：
 
 ## 优化方向
 
-前端性能优化可以从**加载**（项目架构、项目配置）、**渲染**（代码细节）两个纬度进行划分。
+前端性能优化可以从 **加载**（项目架构、项目配置）、**代码细节** 两个纬度进行划分。
 
 ### 加载
 
 配置相关：Gzip、CDN
-项目架构：Webpack 处理、服务端 SSR， 客户端 SSR
 
-1. 客户端 gzip 离线包，服务器资源 gzip 压缩包。[gzip relevant](./src/optimization-direction/gzip.md)
-2. CDN 静态资源。[CDN relevant](./src/optimization-direction/cdn.md)
-3. JS 代码压缩混淆，ES Module，动态 Import，CSS 代码压缩与无用代码移除。[Webpack optimization Setting relevant](./src/optimization-direction/webpack-optimization-setting.md)
+项目架构：Webpack 配置、服务端 SSR，客户端渲染
+
+1. 客户端 gzip 离线包，服务器资源 gzip 压缩包。[gzip related](./src/optimization-direction/gzip.md)
+2. CDN 静态资源。[cdn related](./src/optimization-direction/cdn.md)
+3. JS 代码压缩混淆，ES Module，动态 Import，CSS 代码压缩与无用代码移除。[webpack optimization Setting related](./src/optimization-direction/webpack-optimization-setting.md)
+4. 图片加载优化，是否可以使用 webp 图片格式文件。[image optimization related](./src/optimization-direction/image-optimization.md)
+5. 服务端渲染 SSR，客户端渲染。[ssr related](./src/optimization-direction/ssr.md)
+6. Webpack DLL，通用优先打包抽离，利用浏览器缓存。
+7. Wbepack 本身提供的优化，Base64，资源压缩，Tree Shaking，拆包 chunk
+8. 使用骨架图
+9. 延迟加载不用长内容
+
+### 代码细节
+
+从 `html`, `css`, `assets`, `js` 方向分别描述
+
+1. 使用 perfetch, preload 预加载等新特性
+2. 合理使用 async (加载完当前 js 立即执行), defer (所有资源加载完之后执行 js)，避免阻塞 DOM 解析
+3. 减少组件层级与复杂度
+4. 图片优化，图片占位，图片懒加载，雪碧图
+
+5. 优先使用 Flex 布局
+6. 减少 DOM 操作，减少重绘重排，尽量使用 CSS3、transform，requestAnimationFrame
+
+7. 首屏减少和客户端交互，并合并接口请求
+8. 首页不加载不可视组件
+9. 减少重定向
+10. 防止渲染抖动，控制时序，避免重复渲染
+11. 数据缓存，减少接口请求
+12. 服务器合理设置缓存策略
+
+### 页面卡顿问题
+
+卡顿问题主要由于：动画、DOM 操作、异步、事件绑定、防抖或节流等原因导致。
+
+1. 动画方面，尽量使用 CSS 动画，由于效率比 JS 高，而且 CSS 可以为 GPU 加速，3D 加速。如果非要使用 JS 动画，可以使用 requestAnimationFrame
+2. 事件绑定，尽量使用事件委托，避免事件冒泡
+3. 批量操作 DOM，尽量使用 DocumentFragment，若是图片则需要固定图片容器大小，避免屏幕抖动
+4. 异步操作，尽量使用 Promise.all，避免多个异步操作导致页面卡顿。在实际对应场景中可以使用，IntersectionObserver，PostMessage，RequestIdleCallback 等 API
+5. 节流和防抖
+6. 减少重绘重排
+7. 减少临时大对象的创建，避免内存泄漏，若一定要使用可以利用对象缓存，减少内存碎片
+
+### 性能优化常用 API
+
+1. IntersectionObserver，PostMessage，RequestIdleCallback
+2. RequestFrameAnmation 和 RequestIdleCallback
+3. Web Worker，耗时的任务可以放入 Web Worker 中执行，避免阻塞主线程
+4. Img 的 onload 事件，监听首屏内的图片是否加载完成，判断首屏事件
+5. window.addEventListener('load', () => {})，监听页面是否加载完成。 window.addEventListener('DOMContentLoaded', () => {})，监听页面 DOM 是否加载完成
+6. Performance API，可以获取页面性能数据，如：重绘重排次数，页面加载时间，页面卡顿时间等。performance.now() 与 now Date() 区别，是高精度的并且是相对于时间，页面加载的那一刻。
 
 ## 工具
 
