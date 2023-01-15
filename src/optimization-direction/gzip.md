@@ -8,7 +8,7 @@
 2. nginx 配置，一般是 `location` 段进行 gzip 的开启
 3. 客户端 gzip 离线包通过 Service Worker 缓存静态资源，生成离线包，通过 `sw-precache-webpack-plugin` 插件进行配置。另外，离线包的大小需要小于 2M，否则不合适，离线包的加载优先级高于网络请求。
 
-## 配合 webpack 使用
+## webpack 配置 
 
 ```bash
 # install
@@ -30,7 +30,7 @@ module.exports = {
 }
 ```
 
-## 配合 vite 使用
+## vite 配置 
 
 ```bash
 # install
@@ -51,7 +51,7 @@ export default defineConfig({
 })
 ```
 
-## 配合 nginx 使用
+## nginx 配置 
 
 ```bash
 # install

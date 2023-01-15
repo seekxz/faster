@@ -41,7 +41,7 @@ RAIL 模型，加载完成后的交互响应参考的是：
 
 1. 客户端 gzip 离线包，服务器资源 gzip 压缩包。[gzip related](./src/optimization-direction/gzip.md)
 2. CDN 静态资源。[cdn related](./src/optimization-direction/cdn.md)
-3. JS 代码压缩混淆，ES Module，动态 Import，CSS 代码压缩与无用代码移除。[webpack optimization Setting related](./src/optimization-direction/webpack-optimization-setting.md)
+3. JS 代码压缩混淆，ES Module，动态 Import，CSS 代码压缩与无用代码移除。[webpack optimization Setting related](./src/optimization-direction/building-tools-optimization-setting.md)
 4. 图片加载优化，是否可以使用 webp 图片格式文件。[image optimization related](./src/optimization-direction/image-optimization.md)
 5. 服务端渲染 SSR，客户端渲染。[ssr related](./src/optimization-direction/ssr.md)
 6. Webpack DLL，通用优先打包抽离，利用浏览器缓存。
