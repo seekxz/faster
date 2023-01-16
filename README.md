@@ -23,7 +23,7 @@ RAIL 模型，加载完成后的交互响应参考的是：
 5. TTI， Time to Interactive，首次可交互时间，可以用 DomReady 时间。合理值在 5s 以内
 6. 资源总下载时间。Load 时间 >= DomContentLoaded 时间
   Dom 加载完时间，DomContentLoaded
-  页面资源加载完时间，Load，包括图片，音视频等异步资源。但是资源加载完之后，页面还没有完全稳定，完全稳定的时间由 finish 决定。
+  页面资源加载完时间，Load，包括图片，音视频等异步资源。但是资源加载完之后，页面还没有完全稳定，完全稳定的时间由 finish 决定
 7. 服务端重要接口加载速度
 8. 客户端启动容器（Webview）时间
 
@@ -39,12 +39,12 @@ RAIL 模型，加载完成后的交互响应参考的是：
 
 项目架构：Webpack 配置、服务端 SSR，客户端渲染
 
-1. 客户端 gzip 离线包，服务器资源 gzip 压缩包。[gzip related](./src/optimization-direction/gzip.md)
-2. CDN 静态资源。[cdn related](./src/optimization-direction/cdn.md)
-3. JS 代码压缩混淆，ES Module，动态 Import，CSS 代码压缩与无用代码移除。[webpack optimization Setting related](./src/optimization-direction/building-tools-optimization-setting.md)
-4. 图片加载优化，是否可以使用 webp 图片格式文件。[image optimization related](./src/optimization-direction/image-optimization.md)
-5. 服务端渲染 SSR，客户端渲染。[ssr related](./src/optimization-direction/ssr.md)
-6. Webpack DLL，通用优先打包抽离，利用浏览器缓存。
+1. 客户端 gzip 离线包，服务器资源 gzip 压缩包 [gzip related](./src/optimization-direction/gzip.md)
+2. CDN 静态资源 [cdn related](./src/optimization-direction/cdn.md)
+3. JS 代码压缩与混淆；ES Module 使用；动态 Import 使用；动态 Polyfill 的使用；CSS 代码压缩与无用代码移除 [webpack optimization Setting related](./src/optimization-direction/building-tools-optimization-setting.md)
+4. 图片加载优化，是否可以使用 webp 图片格式文件 [image optimization related](./src/optimization-direction/image-optimization.md)
+5. 服务端渲染 SSR，客户端渲染 [ssr related](./src/optimization-direction/ssr.md)
+6. Webpack DLL，通用优先打包抽离，利用浏览器缓存
 7. Wbepack 本身提供的优化，Base64，资源压缩，Tree Shaking，拆包 chunk
 8. 使用骨架图
 9. 延迟加载不用长内容
@@ -87,7 +87,7 @@ RAIL 模型，加载完成后的交互响应参考的是：
 3. Web Worker，耗时的任务可以放入 Web Worker 中执行，避免阻塞主线程
 4. Img 的 onload 事件，监听首屏内的图片是否加载完成，判断首屏事件
 5. window.addEventListener('load', () => {})，监听页面是否加载完成。 window.addEventListener('DOMContentLoaded', () => {})，监听页面 DOM 是否加载完成
-6. Performance API，可以获取页面性能数据，如：重绘重排次数，页面加载时间，页面卡顿时间等。performance.now() 与 now Date() 区别，是高精度的并且是相对于时间，页面加载的那一刻。
+6. Performance API，可以获取页面性能数据，如：重绘重排次数，页面加载时间，页面卡顿时间等。performance.now() 与 now Date() 区别，是高精度的并且是相对于时间，页面加载的那一刻
 
 ## 工具
 
