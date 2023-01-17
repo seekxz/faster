@@ -313,12 +313,24 @@ module.exports = merge(commonConfig, {
 
 const { merge } = require('webpack-merge')
 const commonConfig = require('./webpack.common.js')
-const PurgeCSSPlugin = require('purgecss-webpack-plugin')
+const {PurgeCSSPlugin} = require('purgecss-webpack-plugin')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const glob = require('glob-all')
 const path = require('path')
 
 module.exports = merge(commonConfig, {
+  module: {
+    rules: [
+      {
+        test: /\.css$/,
+        use: [
+          MiniCssExtractPlugin.loader,
+          'css-loader',
+          'postcss-loader'
+        ]
+      }
+    ]
+  },
   plugins: [
     new MiniCssExtractPlugin({
       filename: 'css/[name].[contenthash:8].css',
@@ -328,11 +340,11 @@ module.exports = merge(commonConfig, {
       paths: glob.sync([
         path.join(__dirname, './src/*.html'),
         path.join(__dirname, './src/*.vue')
-      ])
+      ], {nodir: true})
     })
   ]
 })
 ```
 
-未移除前的打包文件：![purgecss dist](../assets/building-tools-optimization-setting/purgecss.png)
-移除未使用 css 后的打包文件：![purgecss dist](../assets/building-tools-optimization-setting/unused-purgecss.png)
+未擦除前的打包文件：![purgecss dist](../assets/building-tools-optimization-setting/purgecss.png)
+擦除未使用 css 后的打包文件：![purgecss dist](../assets/building-tools-optimization-setting/unused-purgecss.png)
