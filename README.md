@@ -7,7 +7,7 @@ Front End Performance Optimization
 
 性能多快才算快呢？不能凭感觉，要有数据支撑，指标进行客观的衡量。
 
-网络加载可以从 Chrome Dev Tools 中的 Network、Lighthouse 相关的指标来分析。
+网络加载可以从 Chrome Dev Tools 中的 Network、Lighthouse、Performace 相关的指标来分析。
 
 RAIL 模型，加载完成后的交互响应参考的是：
 1. 响应，在 100ms 内响应用户输入；
