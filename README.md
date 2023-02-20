@@ -39,34 +39,34 @@ RAIL 模型，加载完成后的交互响应参考的是：
 
 项目架构：Webpack 配置、服务端 SSR，客户端渲染
 
-1. 客户端 gzip 离线包，服务器资源 gzip 压缩包 [gzip related](./src/optimization-direction/gzip.md)
-2. CDN 静态资源 [cdn related](./src/optimization-direction/cdn.md)
-3. JS 代码压缩与混淆；ES Module 使用；动态 Import 使用；动态 Polyfill 的使用；CSS 代码压缩与无用代码移除 [webpack optimization Setting related](./src/optimization-direction/building-tools-optimization-setting.md)
-4. 图片加载优化，是否可以使用 webp 图片格式文件 [image optimization related](./src/optimization-direction/image-optimization.md)
-5. 服务端渲染 SSR，客户端渲染 [ssr related](./src/optimization-direction/ssr.md)
-6. Webpack DLL，通用优先打包抽离，利用浏览器缓存 [dll](./src/optimization-direction/dll.md)
-7. Wbepack 本身提供的优化，Base64，资源压缩，Tree Shaking，拆包 chunk [webpack optimization](./src/optimization-direction/webpack-optimization.md)
-8. 使用骨架图 [skeleton](./src/optimization-direction/skeleton.md) 
-9. 延迟加载不用的长内容 [lazy load](./src/optimization-direction/lazy-load.md)
+1. 客户端 gzip 离线包，服务器资源 gzip 压缩包 [gzip related](./src/load/gzip.md)
+2. CDN 静态资源 [cdn related](./src/load/cdn.md)
+3. JS 代码压缩与混淆；ES Module 使用；动态 Import 使用；动态 Polyfill 的使用；CSS 代码压缩与无用代码移除 [webpack optimization Setting related](./src/load/building-tools-optimization-setting.md)
+4. 图片加载优化，是否可以使用 webp 图片格式文件 [image optimization related](./src/load/image-optimization.md)
+5. 服务端渲染 SSR，客户端渲染 [ssr related](./src/load/ssr.md)
+6. Webpack DLL，通用优先打包抽离，利用浏览器缓存 [dll](./src/load/dll.md)
+7. Wbepack 本身提供的优化，Base64，资源压缩，Tree Shaking，拆包 chunk [webpack optimization](./src/load/webpack-optimization.md)
+8. 使用骨架图 [skeleton](./src/load/skeleton.md) 
+9. 延迟加载不用的长内容 [lazy load](./src/load/lazy-load.md)
 
 ### 代码细节
 
 从 `html`, `css`, `assets`, `js` 方向分别描述
 
-1. 使用 perfetch, preload 预加载等新特性 [preload related](./src/optimization-direction/preload.md)
-2. 合理使用 async (加载完当前 js 立即执行), defer (所有资源加载完之后执行 js)，避免阻塞 DOM 解析 [async defer related](./src/optimization-direction/async-defer.md)
-3. 减少组件层级与复杂度 [component related](./src/optimization-direction/component.md)
-4. 图片优化，图片占位，图片懒加载，雪碧图 [image related](./src/optimization-direction/image.md)
+1. 使用 perfetch, preload 预加载等新特性 [preload related](./src/code-detail/preload.md)
+2. 合理使用 async (加载完当前 js 立即执行), defer (所有资源加载完之后执行 js)，避免阻塞 DOM 解析 [async defer related](./src/code-detail/async-defer.md)
+3. 减少组件层级与复杂度 [component related](./src/code-detail/component.md)
+4. 图片优化，图片占位，图片懒加载，雪碧图 [image related](./src/code-detail/image.md)
 
-5. 优先使用 Flex 布局 [flex related](./src/optimization-direction/flex.md)
-6. 减少 DOM 操作，减少重绘重排，尽量使用 CSS3、transform，requestAnimationFrame 等 [dom related](./src/optimization-direction/dom.md)
+5. 优先使用 Flex 布局 [flex related](./src/code-detail/flex.md)
+6. 减少 DOM 操作，减少重绘重排，尽量使用 CSS3、transform，requestAnimationFrame 等 [dom related](./src/code-detail/dom.md)
 
-7. 首屏减少和客户端交互，并合并接口请求 [first screen related](./src/optimization-direction/first-screen.md)
-8. 首页不加载不可视组件 [first screen related](./src/optimization-direction/first-screen.md)
-9. 减少重定向 [redirect related](./src/optimization-direction/redirect.md)
-10. 防止渲染抖动，控制时序，避免重复渲染 [render related](./src/optimization-direction/render.md)
-11. 数据缓存，减少接口请求 [client cache related](./src/optimization-direction/cache.md)
-12. 服务器合理设置缓存策略 [service cache related](./src/optimization-direction/cache.md)
+7. 首屏减少和客户端交互，并合并接口请求 [first screen related](./src/code-detail/first-screen.md)
+8. 首页不加载不可视组件 [first screen related](./src/code-detail/first-screen.md)
+9. 减少重定向 [redirect related](./src/code-detail/redirect.md)
+10. 防止渲染抖动，控制时序，避免重复渲染 [render related](./src/code-detail/render.md)
+11. 数据缓存，减少接口请求 [client cache related](./src/code-detail/cache.md)
+12. 服务器合理设置缓存策略 [service cache related](./src/code-detail/cache.md)
 
 ### 页面卡顿问题
 
