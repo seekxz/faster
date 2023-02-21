@@ -59,9 +59,9 @@ RAIL 模型，加载完成后的交互响应参考的是：
 4. 图片优化，图片占位，图片懒加载，雪碧图 [image related](./src/code-detail/image.md)
 
 5. 优先使用 Flex 布局 [flex related](./src/code-detail/flex.md)
-6. 减少 DOM 操作，减少重绘重排，尽量使用 CSS3、transform，requestAnimationFrame 等 [dom related](./src/code-detail/dom.md)
+6. 减少 DOM 操作，减少重绘重排，尽量使用 CSS3 的 transform，requestAnimationFrame 等 [dom related](./src/code-detail/dom.md)
 
-7. 首屏减少和客户端交互，并合并接口请求 [first screen related](./src/code-detail/first-screen.md)
+7. 首屏减少和客户端交互，并合并接口请求 [merge interface related](./src/code-detail/merge-interface.md)
 8. 首页不加载不可视组件 [first screen related](./src/code-detail/first-screen.md)
 9. 减少重定向 [redirect related](./src/code-detail/redirect.md)
 10. 防止渲染抖动，控制时序，避免重复渲染 [render related](./src/code-detail/render.md)
