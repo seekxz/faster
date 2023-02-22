@@ -66,7 +66,7 @@ RAIL 模型，加载完成后的交互响应参考的是：
 9. 减少重定向 [redirect related](./src/code-detail/redirect.md)
 10. 防止渲染抖动，控制时序，避免重复渲染 [render related](./src/code-detail/render.md)
 11. 数据缓存，减少接口请求 [client cache related](./src/code-detail/cache.md)
-12. 服务器合理设置缓存策略 [service cache related](./src/code-detail/cache.md)
+12. 服务器合理设置缓存策略 [service cache related](./src/code-detail/service-cache.md)
 
 ### 页面卡顿问题
 
